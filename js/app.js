@@ -1,14 +1,4 @@
-﻿/*global $, jQuery, ga, WeixinJSBridge, _report, _, Swiper, campaignTools, FastClick*/
-
-/* 
-* @Author: Jiyun
-* @Date:   2015-05-23 15:21:59
-* @Last Modified by:   Jiyun
-* @Last Modified time: 2015-06-26 17:22:55
-*/
-
-/* jshint ignore:start */
-function canvas() {
+﻿function canvas() {
     function Particle(x, y, radius) {
         this.init(x, y, radius);
     }
@@ -44,10 +34,8 @@ function canvas() {
             ctx.fill();
         }
     };
-    // ----------------------------------------
-    // Example
-    // ----------------------------------------
-    var MAX_PARTICLES = 280;
+
+    var MAX_PARTICLES = 999;
     var COLOURS = ['#3720ca', '#41a19c', '#fff428', '#F38630', '#9600c8', '#FF4E50', '#1dce39'];
     var particles = [];
     var pool = [];
@@ -56,7 +44,6 @@ function canvas() {
         container: document.getElementById('container')
     });
     demo.setup = function () {
-        // Set off some initial particles.
         var i, x, y;
         for (i = 0; i < 20; i++) {
             x = (demo.width * 0.5) + random(-100, 100);
@@ -64,9 +51,9 @@ function canvas() {
             demo.spawn(x, y);
         }
 
-        this.r = random(30, 80);
-        this.g = random(80, 180);
-        this.b = random(70, 180);
+        this.r = random(30, 180);
+        this.g = random(30, 180);
+        this.b = random(30, 180);
     };
     demo.spawn = function (x, y) {
         if (particles.length >= MAX_PARTICLES)
@@ -77,7 +64,7 @@ function canvas() {
         particle.color = random(COLOURS);
         particle.drag = random(0.5, 0.99);
         theta = random(TWO_PI);
-        force = random(2, 8);
+        force = random(0, 7);
         particle.vx = sin(theta) * force;
         particle.vy = cos(theta) * force;
         particles.push(particle);
@@ -95,17 +82,15 @@ function canvas() {
     };
     demo.draw = function () {
         demo.globalCompositeOperation = 'lighter';
-        // particles.length = 20;
+
         for (var i = particles.length - 1; i >= 0; i--) {
             particles[i].draw(demo);
         }
 
         var grd = this.createLinearGradient(10, 0, this.width - 10, this.height);
-        // console.log(~~this.r, ~~this.g, ~~this.b);
-        // this.fillStyle = 'rgb(' + ~~this.r + ',' + ~~this.g + ',' + ~~this.b + ')';
+
 
         grd.addColorStop(0, 'rgb(' + ~~this.r + ',' + ~~this.b + ',' + ~~this.g + ')');
-        // grd.addColorStop(0.4, 'rgb(' + ~~(this.r - 30) + ',' + ~~(this.g - 30) + ',' + (~~this.b - 30) + ')');
         grd.addColorStop(1, 'rgb(' + ~~(this.g) + ',' + ~~(this.r) + ',' + ~~(this.b) + ')');
         this.fillStyle = grd;
         this.fillRect(0, 0, this.width, this.height);
@@ -114,155 +99,12 @@ function canvas() {
         var particle, theta, force, touch, max, i, j, n;
         for (i = 0, n = demo.touches.length; i < n; i++) {
             touch = demo.touches[i];
-            max = random(1, 4);
+            max = random(1, 3);
             for (j = 0; j < max; j++) {
                 demo.spawn(touch.x, touch.y);
             }
         }
 
-        // change background color
-        // this.r = 155 * ( this.mouse.x / this.width );
-        // this.g = 155 * ( this.mouse.y / this.height );
-        // this.b = 155 * abs( cos( PI * this.mouse.y / this.width ) );
     };
 }
 canvas();
-/* jshint ignore:end */
-
-// var mySwiper;
-
-
-// function swiperSetup() {
-//     var animated = false;
-//     mySwiper = new Swiper('#slider', {
-//         direction: 'horizontal',
-//         // direction: 'vertical',
-//         loop: false,
-//         // slidesPerView: 1,
-//         slidesPerView: 'auto',
-//         centeredSlides: true,
-//         // nextButton: '.next',
-//         keyboardControl: true,
-//         pagination: '.swiper-pagination',
-//         // mousewheelControl: true,
-//         // mousewheelForceToAxis: true,
-//         // hashnav: true,
-//         // speed: 400,
-//         // freeMode: true,
-//         spaceBetween: 20,
-
-//         onTransitionStart: function (swiper) {
-//             var index = swiper.activeIndex;
-//         },
-
-//         onTransitionEnd: function (swiper) {
-
-//         }
-//     });
-
-//     mySwiper.on('slideChangeStart', function (swiper) {
-
-//     });
-// }
-
-
-//$(function () {
-
-//    // var worksArray = [
-//    //     {
-//    //         'title': '这是1',
-//    //         'image': 'http://perber.qiniudn.com/U2NyZWVuU2hvdDIwMTUtMDQtMDZhdDEyLjQzLjA1QU0ucG5n_1431154498673',
-//    //         'url': 'http://www.doubam.com'
-//    //     }, {
-//    //         'title': '这是2',
-//    //         'image': 'http://perber.qiniudn.com/cDIyMjYwMTIyMzcuanBn_1431154515785',
-//    //         'url': 'http://www.doubam.com'
-//    //     }, {
-//    //         'title': '这是2',
-//    //         'image': 'http://perber.qiniudn.com/cDIyMjYwMTIyMzcuanBn_1431154515785',
-//    //         'url': 'http://www.doubam.com'
-//    //     }, {
-//    //         'title': '这是2',
-//    //         'image': 'http://perber.qiniudn.com/cDIyMjYwMTIyMzcuanBn_1431154515785',
-//    //         'url': 'http://www.doubam.com'
-//    //     }, {
-//    //         'title': '这是2',
-//    //         'image': 'http://perber.qiniudn.com/cDIyMjYwMTIyMzcuanBn_1431154515785',
-//    //         'url': 'http://www.doubam.com'
-//    //     }, {
-//    //         'title': '这是2',
-//    //         'image': 'http://perber.qiniudn.com/cDIyMjYwMTIyMzcuanBn_1431154515785',
-//    //         'url': 'http://www.doubam.com'
-//    //     }, {
-//    //         'title': '这是2',
-//    //         'image': 'http://perber.qiniudn.com/cDIyMjYwMTIyMzcuanBn_1431154515785',
-//    //         'url': 'http://www.doubam.com'
-//    //     }, {
-//    //         'title': '这是2',
-//    //         'image': 'http://perber.qiniudn.com/cDIyMjYwMTIyMzcuanBn_1431154515785',
-//    //         'url': 'http://www.doubam.com'
-//    //     }, {
-//    //         'title': '这是2',
-//    //         'image': 'http://perber.qiniudn.com/cDIyMjYwMTIyMzcuanBn_1431154515785',
-//    //         'url': 'http://www.doubam.com'
-//    //     }, {
-//    //         'title': '这是2',
-//    //         'image': 'http://perber.qiniudn.com/cDIyMjYwMTIyMzcuanBn_1431154515785',
-//    //         'url': 'http://www.doubam.com'
-//    //     }, {
-//    //         'title': '这是2',
-//    //         'image': 'http://perber.qiniudn.com/cDIyMjYwMTIyMzcuanBn_1431154515785',
-//    //         'url': 'http://www.doubam.com'
-//    //     }, {
-//    //         'title': '这是2',
-//    //         'image': 'http://perber.qiniudn.com/cDIyMjYwMTIyMzcuanBn_1431154515785',
-//    //         'url': 'http://www.doubam.com'
-//    //     }
-//    // ];
-
-//    // var render = {
-//    //     templates: {
-//    //         worksTpl: _.template($('script#worksTpl').html())
-//    //     },
-
-//    //     renderWorks: function () {
-
-//    //         $('#works-wrap').html(render.templates.worksTpl({
-//    //             works: worksArray
-//    //         }));
-
-//    //         // setTimeout(function () {
-//    //             // 翻页插件启动
-//    //             swiperSetup();
-//    //         // }, 500);
-
-
-
-//    //         $('#cont').velocity({
-//    //             translateY: - ($('#cont').height()) + 70
-//    //         }, {
-//    //             // duration: 650,
-//    //             complete: function () {
-
-//    //                 $('#works-wrap').css('z-index', 0).velocity('transition.slideUpIn', {
-//    //                     complete: function () {
-
-//    //                     }
-//    //                 });
-//    //             }
-//    //         });
-//    //     }
-//    // };
-
-//    // $('#nav a').click(function () {
-//    //     var $t = $(this);
-//    //     var target = $t.attr('data-link');
-
-//    //     switch (target) {
-//    //         case 'works':
-//    //             render.renderWorks();
-//    //             break;
-//    //     }
-//    // });
-
-//});

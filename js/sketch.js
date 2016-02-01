@@ -1,21 +1,19 @@
 
-/* Copyright (C) 2013 Justin Windle, http://soulwire.co.uk */
-
 (function ( root, factory ) {
-    
+
     if ( typeof exports === 'object' ) {
 
-        // CommonJS like
+
         module.exports = factory(root, root.document);
 
     } else if ( typeof define === 'function' && define.amd ) {
 
-        // AMD
+
         define( function() { return factory( root, root.document ); });
 
     } else {
 
-        // Browser global
+
         root.Sketch = factory( root, root.document );
     }
 
@@ -23,13 +21,6 @@
 
     "use strict";
 
-    /*
-    ----------------------------------------------------------------------
-
-        Config
-
-    ----------------------------------------------------------------------
-    */
 
     var MATH_PROPS = 'E LN10 LN2 LOG2E LOG10E PI SQRT1_2 SQRT2 abs acos asin atan ceil cos exp floor log round sin sqrt tan atan2 pow max min'.split( ' ' );
     var HAS_SKETCH = '__hasSketch';
@@ -71,13 +62,7 @@
         40: 'DOWN'
     };
 
-    /*
-    ----------------------------------------------------------------------
 
-        Utilities
-
-    ----------------------------------------------------------------------
-    */
 
     function isArray( object ) {
 
@@ -141,13 +126,7 @@
         return object;
     }
 
-    /*
-    ----------------------------------------------------------------------
 
-        Constructor
-
-    ----------------------------------------------------------------------
-    */
 
     function constructor( context ) {
 
@@ -254,11 +233,10 @@
                         context.clear();
                 }
 
-                // Draw
+
 
                 trigger( context.draw );
-                
-                // Post draw
+
 
                 if ( is2D && context.retina )
 
@@ -401,7 +379,6 @@
             trigger( context[ event.type ], event );
         }
 
-        // Public API
 
         function start() {
 
@@ -462,13 +439,6 @@
         return ( context.autostart && start(), bind( true ), resize(), update(), context );
     }
 
-    /*
-    ----------------------------------------------------------------------
-
-        Global API
-
-    ----------------------------------------------------------------------
-    */
 
     var element, context, Sketch = {
 
@@ -566,13 +536,7 @@
         }
     };
 
-    /*
-    ----------------------------------------------------------------------
 
-        Shims
-
-    ----------------------------------------------------------------------
-    */
 
     var vendors = [ 'ms', 'moz', 'webkit', 'o' ];
     var scope = self;
@@ -607,13 +571,7 @@
         clearTimeout( id );
     };
 
-    /*
-    ----------------------------------------------------------------------
 
-        Output
-
-    ----------------------------------------------------------------------
-    */
 
     return Sketch;
 

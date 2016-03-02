@@ -1,0 +1,198 @@
+﻿body {
+}
+        .page-home {
+            width: 940px;
+            margin: 0 auto;
+            text-align: left;
+            padding-bottom: 40px;
+        }
+
+        .layout-home-left {
+            float: left;
+            width: 700px;
+        }
+
+        .layout-title {
+            background: url(App_Themes/Default/Image/home-pageline-1.gif) 0 bottom repeat-x;
+            height: 46px;
+        }
+
+            .layout-title .text-title {
+                line-height: 46px;
+                display: inline;
+                font-size: 24px;
+                font-family: Microsoft Yahei;
+                color: #333;
+                background: url(App_Themes/Default/Image/home-pageline-2.gif) 0 bottom repeat-x;
+                font-weight: normal;
+            }
+
+        .layout-home-right {
+            float: right;
+            width: 220px;
+        }
+
+        .text-title h2 {
+            font-size: 24px;
+            line-height: 27px;
+            font-weight: normal;
+        }
+
+        .content-body {
+            padding: 15px 0 16px 0;
+        }
+
+            .content-body p {
+                line-height: 26px;
+                font-size: 16px;
+                color: #787878;
+                padding: 10px 20px 10px 0;
+                font-family: Microsoft Yahei;
+            }
+
+        .clearfix {
+            zoom: 1;
+        }
+
+        .content-body ul a {
+            float: left;
+            padding: 5px;
+        }
+
+        .content-body ul li {
+            width: 160px;
+            height: 90px;
+            border: 2px solid #a0a0a0;
+        }
+
+            .content-body ul li img {
+                width: 160px;
+                height: 90px;
+                margin: 0 auto;
+            }
+
+        .layout-home .content-body {
+            width: 740px;
+            float: left;
+        }
+
+        .help-center {
+            font-size: 14px;
+            padding-top: 5px;
+        }
+
+        .content-home-body p {
+            line-height: 26px;
+            font-size: 16px;
+            color: #787878;
+            padding: 10px 20px 10px 0;
+            font-family: Microsoft Yahei;
+        }
+
+        .content-home-body {
+            padding-top: 30px;
+        }
+
+        .help-center li {
+            line-height: 26px;
+            font-family: Microsoft Yahei;
+            color: #787878;
+        }
+
+        .content-home-body {
+            font-family: Microsoft Yahei;
+        }
+
+            .content-home-body .tel li {
+                line-height: 30px;
+                font-size: 16px;
+                color: #222;
+            }
+
+            .content-home-body .tel {
+                padding-top: 30px;
+                padding-left: 20px;
+            }
+
+        .tel_icon {
+            padding-left: 60px;
+        }
+
+        .tel_qq {
+            padding-left: 200px;
+            padding-top: 30px;
+        }
+
+        .qq {
+            color: #19a3e1;
+            margin-top: 25px;
+        }
+
+        .content-home-body .qq li {
+            float: left;
+            font-size: 20px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+            .content-home-body .qq li a {
+                font-size: 16px;
+            }
+
+        .qq .qq_icon {
+            position: relative;
+            top: 5px;
+        }
+
+        .qq {
+            padding-left: 20px;
+        }
+
+        .need-more {
+            padding-top: 25px;
+        }
+
+        .layout-title a {
+            color: #868686;
+        }
+
+        .content-home-body .test {
+            right: 100px;
+            top: 100px;
+            background: #1c8821;
+            height: 62px;
+            line-height: 62px;
+            font-size: 24px;
+            color: #fff;
+            border-radius: 2px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .kel {
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+
+            .kel .tipg {
+                color: #1c8821;
+            }
+
+        .layout-home .content-img {
+            width: 240px;
+            height: auto;
+        }
+
+        .tel h3 {
+            font-size: 20px;
+            padding-bottom: 18px;
+        }
+
+        .layout-home .time li {
+            color: #222;
+            font-size: 16px;
+            padding-top: 20px;
+            line-height: 20px;
+        }
+
